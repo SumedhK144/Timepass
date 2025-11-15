@@ -60,7 +60,8 @@ status_t copy_files(descriptor_t src_fd,descriptor_t dest_fd){
     ssize_t n = 0;
 
     while((n = read(src_fd,buffer,BUFFER_SIZE)) > 0)
-        write(dest_fd,buffer,n);
+       if(write(dest_fd,buffer,n) != n)
+           perror("write()");
 
     if(n < 0){
         perror("read()");
