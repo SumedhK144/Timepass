@@ -1,0 +1,5 @@
+TOPIC: Simple Shell
+
+Build a command interpreter supporting pipes, I/O redirection, and built-in commands using
+fork(), exec(), wait(), pipe(), dup2(), and chdir(). This is perhaps the most educational project
+for understanding process creation and control.
