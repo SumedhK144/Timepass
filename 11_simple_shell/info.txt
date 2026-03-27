@@ -3,3 +3,15 @@ TOPIC: Simple Shell
 Build a command interpreter supporting pipes, I/O redirection, and built-in commands using
 fork(), exec(), wait(), pipe(), dup2(), and chdir(). This is perhaps the most educational project
 for understanding process creation and control.
+
+now first version what you've did
+    parsed only string and executed as it is
+
+now in second version you have to implement for 
+    a command chich contains one pipe 
+    e.g. 
+        echo "hello" | wc
+        ls -l | wc 
+
+        so first write a algo for parsing
+        second focus on fd and pipe system call

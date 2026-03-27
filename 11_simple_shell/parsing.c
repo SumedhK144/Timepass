@@ -23,12 +23,14 @@ int main(void){
     }
 
 
+
 }
 
 char** parser_string(char* inputString){
     int i,j,k;
     int start,length;
-    
+    int noPipe = 0;
+
     char** parsed_array = (char**)malloc(sizeof(char*) * MAX_WORDS);
     if(parsed_array == NULL){
         puts("malloc()");
@@ -43,10 +45,14 @@ char** parser_string(char* inputString){
         
         if(inputString[i] == '\0')
             break;
-            
+        
+        
         start = i;
-        while(inputString[i] != '\0' && !isspace(inputString[i]))
+        while(inputString[i] != '\0' && !isspace(inputString[i])){
+            if(inputString[i] == '|')
+                noPipe++;
             i++;
+        }
 
         length = i - start;
 
@@ -61,6 +67,7 @@ char** parser_string(char* inputString){
     }
 
     parsed_array[j] = NULL;
+    printf("no of pipe: %d\n",noPipe);
     return parsed_array;
 
 }
